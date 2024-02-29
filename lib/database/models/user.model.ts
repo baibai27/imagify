@@ -3,6 +3,7 @@ import { Schema, model, models, Document } from "mongoose";
 interface User extends Document {
   firstName?: string; // Optional since it's not marked as required
   lastName?: string; // Optional for the same reason
+  username?: string;
   email: string; // Required and must be unique
   clerkId: string; // Required and must be unique
   photo: string; // Required
@@ -13,6 +14,7 @@ interface User extends Document {
 const UserSchema = new Schema({
   firstName: { type: String },
   lastName: { type: String },
+  username: { type: String },
   email: { type: String, required: true, unique: true },
   clerkId: { type: String, required: true, unique: true },
   photo: { type: String, requried: true },
